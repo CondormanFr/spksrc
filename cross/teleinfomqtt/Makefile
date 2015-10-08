@@ -20,4 +20,4 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myCompil
 myCompil:
-  $(RUN) $(MAKE) -std=c99 -DUSE_MOSQUITTO -lpthread -lmosquitto -Wall TeleInfod.c -o TeleInfod
+	$(RUN) $(MAKE) -std=c99 -DUSE_MOSQUITTO -lpthread -lmosquitto -Wall TeleInfod.c -o TeleInfod
