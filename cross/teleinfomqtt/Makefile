@@ -18,6 +18,6 @@ INSTALL_TARGET = nop
 
 include ../../mk/spksrc.cross-cc.mk
 
-.PHONY: myCompil
-myCompil:
+.PHONY: myCompile
+myCompile:
 	$(RUN) $(MAKE) -std=c99 -DUSE_MOSQUITTO -lpthread -lmosquitto -Wall TeleInfod.c -o TeleInfod
