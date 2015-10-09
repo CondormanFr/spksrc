@@ -26,4 +26,4 @@ myCompile:
           -Wl,--rpath,/usr/local/lib -lpthread -lmosquitto
 
 .PHONY: myInstall
-	@$(RUN) cp TeleinfoMqtt $(STAGING_INSTALL_PREFIX)/bin
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleinfoMqtt $(STAGING_INSTALL_PREFIX)/bin
