@@ -1,0 +1,44 @@
+[{
+    "step_title": "Configuration de base",
+    "items": [{
+        "type": "textfield",
+        "desc": "Port Série /dev/stty1 par défaut",
+        "subitems": [{
+            "key": "wizard_serial_port",
+            "desc": "Port serie",
+            "defaultValue": "/dev/stty1",
+            "validator": {
+                "allowBlank": false,
+                "regex": {
+                    "expr": "/^\\\/volume[0-9]+\\\//",
+                    "errorText": "Le chemin doit commencer par /volume?/ avec ? le numéro du volume"
+                }
+            }
+        }]
+    }, {
+        "type": "textfield",
+        "desc": "Nom du Topic",
+        "subitems": [{
+            "key": "wizard_watch_dir",
+            "desc": "Répertoire surveillé",
+            "validator": {
+                "allowBlank": true,
+                "regex": {
+                    "expr": "/^\\\/volume[0-9]+\\\//",
+                    "errorText": "Le chemin doit commencer par /volume?/ avec ? le numéro du volume"
+                }
+            }
+        }]
+    }]
+    }]
+}, {
+    "step_title": "Configuration de base",
+    "items": [{
+        "type": "textfield",
+        "desc": "Nom d'utilisateur de l'interface web. admin par défaut",
+        "subitems": [{
+            "key": "wizard_username",
+            "desc": "Nom d'utilisateur"
+        }]
+    }]
+}]

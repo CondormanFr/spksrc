@@ -33,3 +33,4 @@ myCompile:
 myInstall:
 	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleinfoMqtt $(STAGING_INSTALL_PREFIX)/bin
 	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/SimuleTrames $(STAGING_INSTALL_PREFIX)/bin
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleInfod.conf $(STAGING_INSTALL_PREFIX)/bin/TeleinfoMqtt.conf

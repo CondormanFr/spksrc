@@ -1,2 +1,3 @@
 bin:bin/TeleinfoMqtt
 bin:bin/SimuleTrames
+bin:bin/TeleinfoMqtt.conf
