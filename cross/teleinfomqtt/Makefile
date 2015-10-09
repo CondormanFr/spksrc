@@ -14,14 +14,16 @@ LICENSE  = AGPLv3
 
 CONFIGURE_TARGET = nop
 COMPILE_TARGET = myCompile
-INSTALL_TARGET = nop
+INSTALL_TARGET = myInstall
 
 include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myCompile
 myCompile:
 	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
-          -std=c99 -DUSE_MOSQUITTO -Wall TeleInfod.c -o TeleInfod \
+          -std=c99 -DUSE_MOSQUITTO -Wall TeleInfod.c -o TeleinfoMqtt \
           -L$(STAGING_INSTALL_PREFIX)/lib -Wl,--rpath-link,$(STAGING_INSTALL_PREFIX)/lib \
           -Wl,--rpath,/usr/local/lib -lpthread -lmosquitto
 
+.PHONY: myInstall
+	@$(RUN) cp TeleinfoMqtt $(STAGING_INSTALL_PREFIX)/bin
