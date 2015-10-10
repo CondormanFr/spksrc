@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Package
-PACKAGE="Teleinfomqtt"
+PACKAGE="teleinfomqtt"
 DNAME="Teleinfo MQTT"
 
 # Others
@@ -22,7 +22,7 @@ preinst ()
 postinst ()
 {
     # Link
-    #ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}
+    ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}
 
     # Create user
     adduser -h ${INSTALL_DIR}/var -g "${DNAME} User" -G ${GROUP} -s /bin/sh -S -D ${USER}
