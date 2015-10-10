@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Package
-PACKAGE="TeleinfoMqtt"
+PACKAGE="Teleinfomqtt"
 DNAME="Teleinfo MQTT"
 
 # Others
