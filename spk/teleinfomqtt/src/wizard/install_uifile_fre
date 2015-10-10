@@ -8,37 +8,30 @@
             "desc": "Port serie",
             "defaultValue": "/dev/stty1",
             "validator": {
-                "allowBlank": false,
-                "regex": {
-                    "expr": "/^\\\/volume[0-9]+\\\//",
-                    "errorText": "Le chemin doit commencer par /volume?/ avec ? le numéro du volume"
-                }
+                "allowBlank": false
             }
         }]
-    }, {
+    },{
+        "type": "textfield",
+        "desc": "Serveur MQTT",
+        "subitems": [{
+            "key": "wizard_BrokerHost",
+            "desc": "Serveur sur lequel tourne le broker (par défaut : tcp://localhost:1883)",
+            "defaultValue": "tcp://localhost:1883",
+            "validator": {
+                "allowBlank": false
+            }
+        }]
+    },{
         "type": "textfield",
         "desc": "Nom du Topic",
         "subitems": [{
-            "key": "wizard_watch_dir",
-            "desc": "Répertoire surveillé",
+            "key": "wizard_mqtttopic",
+            "desc": "Racine du topic MQTT.Par défaut : TeleInfo/Production",
+            "defaultValue": "TeleInfo/Production",
             "validator": {
-                "allowBlank": true,
-                "regex": {
-                    "expr": "/^\\\/volume[0-9]+\\\//",
-                    "errorText": "Le chemin doit commencer par /volume?/ avec ? le numéro du volume"
-                }
+                "allowBlank": false
             }
-        }]
-    }]
-    }]
-}, {
-    "step_title": "Configuration de base",
-    "items": [{
-        "type": "textfield",
-        "desc": "Nom d'utilisateur de l'interface web. admin par défaut",
-        "subitems": [{
-            "key": "wizard_username",
-            "desc": "Nom d'utilisateur"
         }]
     }]
 }]

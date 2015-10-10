@@ -7,14 +7,14 @@ DSM_UI_DIR = app
 DEPENDS = cross/$(SPK_NAME)
 
 MAINTAINER = SynoCommunity
-DESCRIPTION = 
+DESCRIPTION = Test de Romain
 DESCRIPTION_FRE =Programme qui écoute le signal TELEINFO sur le port serie et qui envoie les trame sur un broker MQTT.
-RELOAD_UI = yes
+RELOAD_UI = no
 DISPLAY_NAME = TeleinfoMQTT
 CHANGELOG = "Initial Release"
 
 HOMEPAGE = https://github.com/destroyedlolo/TeleInfod
-LICENSE  =
+LICENSE  = none
 
 WIZARDS_DIR = src/wizard/
 
@@ -23,5 +23,11 @@ SSS_SCRIPT       = src/dsm-control.sh
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
+POST_STRIP_TARGET = teleinfomqtt_extra_install
+
 include ../../mk/spksrc.spk.mk
 
+
+.PHONY: teleinfomqtt_extra_install
+teleinfomqtt_extra_install:
+	install -m 644 src/conf/TeleInfod.conf $(STAGING_DIR)/bin/TeleInfod.conf

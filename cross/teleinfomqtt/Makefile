@@ -1,7 +1,7 @@
 PKG_NAME = teleinfomqtt
 PKG_EXT = tar.gz
 PKG_DOWNLOAD_METHOD = git
-PKG_GIT_HASH = 95c8626
+PKG_GIT_HASH = 92f007c
 PKG_DIST_SITE = https://github.com/destroyedlolo/TeleInfod.git
 PKG_DIST_FILE = $(PKG_NAME)-git$(PKG_GIT_HASH).$(PKG_EXT)
 PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
