@@ -5,7 +5,7 @@ PACKAGE="TeleinfoMqtt"
 DNAME="Teleinfo MQTT"
 
 # Others
-SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
+#SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:${PATH}"
 
