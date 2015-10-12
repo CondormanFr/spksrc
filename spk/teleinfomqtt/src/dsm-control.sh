@@ -7,14 +7,16 @@ DNAME="teleinfomqtt"
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:${PATH}"
-USER="openhab"
+USER="teleinfomqtt"
 TELEINFOMQTT="${INSTALL_DIR}/bin/TeleinfoMqtt"
 PID_FILE="${INSTALL_DIR}/var/TeleinfoMqtt.pid"
+CFG_FILE="${INSTALL_DIR}/var/TeleInfoMqtt.conf"
 
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH} ${TELEINFOMQTT} -g ${INSTALL_DIR}/var/ -x ${PID_FILE}"
+    stty 1200 cs7 evenp cstopb -igncr -inlcr -brkint -icrnl -opost -isig -icanon -iexten -F /dev/ttyUSB0
+    su - ${USER} -c "PATH=${PATH} ${TELEINFOMQTT} -f${CFG_FILE} -d -g ${INSTALL_DIR}/var/ -x ${PID_FILE}"
 }
 
 stop_daemon ()

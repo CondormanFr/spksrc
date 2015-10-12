@@ -4,7 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/teleinfomqtt.png
 DSM_UI_DIR = app
 
-DEPENDS = cross/$(SPK_NAME)
+DEPENDS = cross/busybox cross/$(SPK_NAME)
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = Test de Romain
@@ -30,4 +30,5 @@ include ../../mk/spksrc.spk.mk
 
 .PHONY: teleinfomqtt_extra_install
 teleinfomqtt_extra_install:
-	install -m 644 src/conf/TeleInfod.conf $(STAGING_DIR)/bin/TeleInfod.conf
+	install -m 755 -d $(STAGING_DIR)/var
+	install -m 644 src/conf/TeleInfoMqtt.conf $(STAGING_DIR)/var/TeleInfoMqtt.conf
