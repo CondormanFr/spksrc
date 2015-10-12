@@ -23,11 +23,11 @@ myCompile:
 	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
           -std=c99 -DUSE_MOSQUITTO -Wall TeleInfod.c -o TeleinfoMqtt \
           -L$(STAGING_INSTALL_PREFIX)/lib -Wl,--rpath-link,$(STAGING_INSTALL_PREFIX)/lib \
-          -Wl,--rpath,/usr/local/lib -lpthread -lmosquitto
+          -Wl,--rpath,/usr/local/$(PKG_NAME)/lib -lpthread -lmosquitto
 	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
            -Wall SimuleTrames.c -o SimuleTrames \
           -L$(STAGING_INSTALL_PREFIX)/lib -Wl,--rpath-link,$(STAGING_INSTALL_PREFIX)/lib \
-          -Wl,--rpath,/usr/local/lib
+          -Wl,--rpath,/usr/local/$(PKG_NAME)/lib
 
 .PHONY: myInstall
 myInstall:
