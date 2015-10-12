@@ -16,8 +16,14 @@
         "desc": "Serveur MQTT",
         "subitems": [{
             "key": "wizard_BrokerHost",
-            "desc": "Serveur sur lequel tourne le broker (par défaut : tcp://localhost:1883)",
-            "defaultValue": "tcp://localhost:1883",
+            "desc": "Serveur sur lequel tourne le broker (par défaut : localhost)",
+            "defaultValue": "localhost",
+            "validator": {
+                "allowBlank": false
+            },{
+            "key": "wizard_BrokerPort",
+            "desc": "Port du broker (par défaut : 1883)",
+            "defaultValue": "1883",
             "validator": {
                 "allowBlank": false
             }
