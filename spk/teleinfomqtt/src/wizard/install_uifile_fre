@@ -20,7 +20,8 @@
             "defaultValue": "localhost",
             "validator": {
                 "allowBlank": false
-            },{
+            }
+						},{
             "key": "wizard_BrokerPort",
             "desc": "Port du broker (par défaut : 1883)",
             "defaultValue": "1883",
@@ -30,7 +31,7 @@
         }]
     },{
         "type": "textfield",
-        "desc": "Nom du Topic",
+        	"desc": "Nom du Topic",
         "subitems": [{
             "key": "wizard_mqtttopic",
             "desc": "Racine du topic MQTT.Par défaut : TeleInfo/Production",
