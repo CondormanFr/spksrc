@@ -2,7 +2,6 @@ SPK_NAME = teleinfo2mqtt
 SPK_VERS = 1.00
 SPK_REV = 1
 SPK_ICON = src/teleinfo2mqtt.png
-DSM_UI_DIR = app
 
 DEPENDS = cross/busybox cross/$(SPK_NAME)
 
