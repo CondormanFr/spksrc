@@ -45,6 +45,8 @@ postinst ()
 preuninst ()
 {
 
+     deluser ${USER}
+    
     # Stop the package
     ${SSS} stop > /dev/null
 
@@ -53,6 +55,7 @@ preuninst ()
 
 postuninst ()
 {
+
     # Remove link
     rm -f ${INSTALL_DIR}
     exit 0
