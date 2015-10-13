@@ -1,4 +1,4 @@
-PKG_NAME = teleinfomqtt
+PKG_NAME = teleinfo2mqtt
 PKG_EXT = tar.gz
 PKG_DOWNLOAD_METHOD = git
 PKG_GIT_HASH = 92f007c
@@ -21,7 +21,7 @@ include ../../mk/spksrc.cross-cc.mk
 .PHONY: myCompile
 myCompile:
 	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
-          -std=c99 -DUSE_MOSQUITTO -Wall TeleInfod.c -o TeleinfoMqtt \
+          -std=c99 -DUSE_MOSQUITTO -Wall TeleInfod.c -o TeleInfod \
           -L$(STAGING_INSTALL_PREFIX)/lib -Wl,--rpath-link,$(STAGING_INSTALL_PREFIX)/lib \
           -Wl,--rpath,/usr/local/$(PKG_NAME)/lib -lpthread -lmosquitto
 	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
@@ -31,6 +31,6 @@ myCompile:
 
 .PHONY: myInstall
 myInstall:
-	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleinfoMqtt $(STAGING_INSTALL_PREFIX)/bin
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleInfod $(STAGING_INSTALL_PREFIX)/bin
 	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/SimuleTrames $(STAGING_INSTALL_PREFIX)/bin
-	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleInfod.conf $(STAGING_INSTALL_PREFIX)/bin/TeleinfoMqtt.conf
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleInfod.conf $(STAGING_INSTALL_PREFIX)/bin/TeleInfod.conf

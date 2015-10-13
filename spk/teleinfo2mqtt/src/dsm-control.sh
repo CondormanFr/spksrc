@@ -1,38 +1,41 @@
 #!/bin/sh
 
 # Package
-PACKAGE="teleinfomqtt"
-DNAME="teleinfomqtt"
+PACKAGE="teleinfotomqtt"
+DNAME="teleinfo -> mqtt"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:${PATH}"
-USER="teleinfomqtt"
-TELEINFOMQTT="${INSTALL_DIR}/bin/TeleinfoMqtt"
-PID_FILE="${INSTALL_DIR}/var/TeleinfoMqtt.pid"
-CFG_FILE="${INSTALL_DIR}/var/TeleInfoMqtt.conf"
+USER="teleinfo2mqtt"
+CFG_FILE="${INSTALL_DIR}/conf/teleinfo2mqtt.conf"
+TELEINFO2MQTT="${INSTALL_DIR}/bin/TeleInfod"
+PID_FILE="${INSTALL_DIR}/var/TeleInfod.pid"
+RUN_ARGS="-d -f${CFG_FILE}"
+LOG_FILE="${INSTALL_DIR}/var/Teleinfo2Mqtt.log"
+
 
 
 start_daemon ()
 {
-    stty 1200 cs7 evenp cstopb -igncr -inlcr -brkint -icrnl -opost -isig -icanon -iexten -F /dev/ttyUSB0
-    su - ${USER} -c "PATH=${PATH} ${TELEINFOMQTT} -f${CFG_FILE} -d -g ${INSTALL_DIR}/var/ -x ${PID_FILE}"
+    stty 1200 cs7 evenp cstopb -igncr -inlcr -brkint -icrnl -opost -isig -icanon -iexten -F @Port@
+    start-stop-daemon -S -m -c ${USER} -u ${USER} -b -p ${PID_FILE} -x ${TELEINFO2MQTT} -- ${RUN_ARGS}
+    exit 0 
+
 }
 
 stop_daemon ()
 {
-    kill `cat ${PID_FILE}`
-    wait_for_status 1 20 || kill -9 `cat ${PID_FILE}`
+    start-stop-daemon -K -q -u ${USER} -p ${PID_FILE}
+    wait_for_status 1 20 || start-stop-daemon -K -s 9 -q -p ${PID_FILE}
     rm -f ${PID_FILE}
+    exit 0
 }
 
 daemon_status ()
 {
-    if [ -f ${PID_FILE} ] && kill -0 `cat ${PID_FILE}` > /dev/null 2>&1; then
-        return
-    fi
-    rm -f ${PID_FILE}
-    return 1
+    start-stop-daemon -K -q -t -u ${USER} -p ${PID_FILE}
+    [ $? -eq 0 ] || return 1
 }
 
 wait_for_status ()
@@ -52,7 +55,6 @@ case $1 in
     start)
         if daemon_status; then
             echo ${DNAME} is already running
-            exit 0
         else
             echo Starting ${DNAME} ...
             start_daemon
@@ -66,13 +68,7 @@ case $1 in
             exit $?
         else
             echo ${DNAME} is not running
-            exit 0
         fi
-        ;;
-    restart)
-        stop_daemon
-        start_daemon
-        exit $?
         ;;
     status)
         if daemon_status; then
@@ -83,7 +79,11 @@ case $1 in
             exit 1
         fi
         ;;
+    log)
+        echo ${LOG_FILE}
+        exit 1
+        ;;
     *)
         exit 1
         ;;
-esac
+esac 
