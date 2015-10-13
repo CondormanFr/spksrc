@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # Package
-PACKAGE="teleinfotomqtt"
-DNAME="teleinfo -> mqtt"
+PACKAGE="teleinfo2mqtt"
+DNAME="teleinfo2mqtt"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:${PATH}"
 USER="teleinfo2mqtt"
-CFG_FILE="${INSTALL_DIR}/conf/teleinfo2mqtt.conf"
+CFG_FILE="${INSTALL_DIR}/conf/TeleInfo2Mqtt.conf"
 TELEINFO2MQTT="${INSTALL_DIR}/bin/TeleInfod"
 PID_FILE="${INSTALL_DIR}/var/TeleInfod.pid"
 RUN_ARGS="-d -f${CFG_FILE}"

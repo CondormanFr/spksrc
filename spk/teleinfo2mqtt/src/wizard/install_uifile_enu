@@ -2,63 +2,43 @@
     "step_title": "Basic configuration",
     "items": [{
         "type": "textfield",
-        "desc": "Download directory",
+        "desc": "Serial port (by default : /dev/ttyUSB0)",
         "subitems": [{
-            "key": "wizard_download_dir",
-            "desc": "Download directory",
-            "defaultValue": "/volume1/downloads",
+            "key": "wizard_serial_port",
+            "desc": "Serial port",
+            "defaultValue": "/dev/ttyUSB0",
             "validator": {
-                "allowBlank": false,
-                "regex": {
-                    "expr": "/^\\\/volume[0-9]+\\\//",
-                    "errorText": "Path should begin with /volume?/ with ? the number of the volume"
-                }
+                "allowBlank": false
             }
         }]
-    }, {
+    },{
         "type": "textfield",
-        "desc": "Watch a directory for torrent files and add them to transmission. Leave empty to disable",
+        "desc": "MQTT Broker",
         "subitems": [{
-            "key": "wizard_watch_dir",
-            "desc": "Watch directory",
+            "key": "wizard_BrokerHost",
+            "desc": "Mqtt broker hos addres (By default : localhost)",
+            "defaultValue": "localhost",
             "validator": {
-                "allowBlank": true,
-                "regex": {
-                    "expr": "/^\\\/volume[0-9]+\\\//",
-                    "errorText": "Path should begin with /volume?/ with ? the number of the volume"
-                }
+                "allowBlank": false
+            }
+						},{
+            "key": "wizard_BrokerPort",
+            "desc": "Mqtt broker server port (By default : 1883)",
+            "defaultValue": "1883",
+            "validator": {
+                "allowBlank": false
             }
         }]
-    }, {
+    },{
         "type": "textfield",
-        "desc": "Directory to keep files in until torrent is complete. Leave empty to disable",
+        	"desc": "Topic name",
         "subitems": [{
-            "key": "wizard_incomplete_dir",
-            "desc": "Incomplete directory",
+            "key": "wizard_mqtttopic",
+            "desc": "MQTT topic root (By default : TeleInfo/Production",
+            "defaultValue": "TeleInfo/Production",
             "validator": {
-                "allowBlank": true,
-                "regex": {
-                    "expr": "/^\\\/volume[0-9]+\\\//",
-                    "errorText": "Path should begin with /volume?/ with ? the number of the volume"
-                }
+                "allowBlank": false
             }
-        }]
-    }]
-}, {
-    "step_title": "Basic configuration",
-    "items": [{
-        "type": "textfield",
-        "desc": "Web interface username. Defaults to admin",
-        "subitems": [{
-            "key": "wizard_username",
-            "desc": "Username"
-        }]
-    }, {
-        "type": "password",
-        "desc": "Web interface password. Defaults to admin",
-        "subitems": [{
-            "key": "wizard_password",
-            "desc": "Password"
         }]
     }]
 }]

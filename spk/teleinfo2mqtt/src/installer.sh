@@ -12,7 +12,7 @@ SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
 USER="teleinfo2mqtt"
 GROUP="uucp"
 
-CFG_FILE="${INSTALL_DIR}/conf/teleinfo2mqtt.conf"
+CFG_FILE="${INSTALL_DIR}/conf/TeleInfo2Mqtt.conf"
 
 preinst ()
 {

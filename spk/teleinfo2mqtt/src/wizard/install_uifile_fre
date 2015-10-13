@@ -6,7 +6,7 @@
         "subitems": [{
             "key": "wizard_serial_port",
             "desc": "Port serie",
-            "defaultValue": "/dev/stty1",
+            "defaultValue": "/dev/ttyUSB0",
             "validator": {
                 "allowBlank": false
             }
