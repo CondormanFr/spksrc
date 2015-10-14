@@ -1,6 +1,6 @@
 SPK_NAME = teleinfo2mqtt
 SPK_VERS = 1.00
-SPK_REV = 1
+SPK_REV = 0
 SPK_ICON = src/teleinfo2mqtt.png
 
 DEPENDS = cross/busybox cross/$(SPK_NAME)
