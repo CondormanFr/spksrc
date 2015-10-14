@@ -16,17 +16,17 @@
         "desc": "MQTT Broker",
         "subitems": [{
             "key": "wizard_BrokerHost",
-            "desc": "Mqtt broker hos addres (By default : localhost)",
+            "desc": "Mqtt broker host address (By default : localhost)",
             "defaultValue": "localhost",
             "validator": {
-                "allowBlank": false
+                "allowBlank": true
             }
 						},{
             "key": "wizard_BrokerPort",
             "desc": "Mqtt broker server port (By default : 1883)",
             "defaultValue": "1883",
             "validator": {
-                "allowBlank": false
+                "allowBlank": true
             }
         }]
     },{
@@ -34,10 +34,10 @@
         	"desc": "Topic name",
         "subitems": [{
             "key": "wizard_mqtttopic",
-            "desc": "MQTT topic root (By default : TeleInfo/Production",
+            "desc": "MQTT topic root (By default : TeleInfo/Production)",
             "defaultValue": "TeleInfo/Production",
             "validator": {
-                "allowBlank": false
+                "allowBlank": true
             }
         }]
     }]

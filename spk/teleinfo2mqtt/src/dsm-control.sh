@@ -11,7 +11,7 @@ USER="teleinfo2mqtt"
 CFG_FILE="${INSTALL_DIR}/conf/TeleInfo2Mqtt.conf"
 TELEINFO2MQTT="${INSTALL_DIR}/bin/TeleInfod"
 PID_FILE="${INSTALL_DIR}/var/TeleInfod.pid"
-RUN_ARGS="-d -f${CFG_FILE}"
+RUN_ARGS="-f${CFG_FILE}"
 LOG_FILE="${INSTALL_DIR}/var/Teleinfo2Mqtt.log"
 
 
@@ -20,8 +20,6 @@ start_daemon ()
 {
     stty 1200 cs7 evenp cstopb -igncr -inlcr -brkint -icrnl -opost -isig -icanon -iexten -F @Port@
     start-stop-daemon -S -m -c ${USER} -u ${USER} -b -p ${PID_FILE} -x ${TELEINFO2MQTT} -- ${RUN_ARGS}
-    exit 0 
-
 }
 
 stop_daemon ()
@@ -29,7 +27,6 @@ stop_daemon ()
     start-stop-daemon -K -q -u ${USER} -p ${PID_FILE}
     wait_for_status 1 20 || start-stop-daemon -K -s 9 -q -p ${PID_FILE}
     rm -f ${PID_FILE}
-    exit 0
 }
 
 daemon_status ()

@@ -8,9 +8,9 @@ PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
 
 DEPENDS = cross/mosquitto
 
-HOMEPAGE = 
+HOMEPAGE = https://github.com/destroyedlolo/TeleInfod
 COMMENT  = 
-LICENSE  = AGPLv3
+LICENSE  = Creative Commons Attribution-NonCommercial 3.0 License
 
 CONFIGURE_TARGET = nop
 COMPILE_TARGET = myCompile

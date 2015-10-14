@@ -6,14 +6,14 @@ SPK_ICON = src/teleinfo2mqtt.png
 DEPENDS = cross/busybox cross/$(SPK_NAME)
 
 MAINTAINER = SynoCommunity
-DESCRIPTION = This proram read Teleinfo signal from serialport and send data to a MQTT broker 
-DESCRIPTION_FRE =Programme qui écoute le signal TELEINFO sur le port serie et qui envoie les trame sur un broker MQTT.
+DESCRIPTION = This proram read TELEINFO signal from serial port and send data to a MQTT broker 
+DESCRIPTION_FRE =Programme qui écoute le signal TELEINFO sur le port série et qui envoie les trames sur un broker MQTT.
 RELOAD_UI = yes
 DISPLAY_NAME = Teleinfo2MQTT
 CHANGELOG = "Initial Release"
 
 HOMEPAGE = https://github.com/destroyedlolo/TeleInfod
-LICENSE  = none
+LICENSE  = Creative Commons Attribution-NonCommercial 3.0 License
 
 WIZARDS_DIR = src/wizard/
 
