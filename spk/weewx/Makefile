@@ -4,7 +4,10 @@ SPK_REV = 1
 SPK_ICON = src/weewx.png
 DSM_UI_DIR = app
 
+DEPENDS = cross/busybox
+
 WHEELS = src/requirements.txt
+
 SPK_DEPENDS = "python>=2.7.6-8"
 
 MAINTAINER = SynoCommunity
@@ -27,7 +30,10 @@ FWPORTS          = src/${SPK_NAME}.sc
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
+
+COPY_TARGET = nop
 POST_STRIP_TARGET = weewx_extra_install
+
 
 BUSYBOX_CONFIG  = nice
 # Add ionice for ARCHs that support it
@@ -39,17 +45,19 @@ ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 include ../../mk/spksrc.spk.mk
 
 .PHONY: weewx_extra_install
-weewx_extra_install:
+weewx_extra_install: $(STAGING_DIR)/share/weewx
+	install -m 755 -d ${STAGING_DIR}/share/wheelhouse
+	install -m 644 ${WORK_DIR}/wheelhouse/* ${STAGING_DIR}/share/wheelhouse/
 	install -m 755 -d $(STAGING_DIR)/var
-	install -m 755 -d $(STAGING_DIR)/var/scripts
-	install -m 755 src/CharTranslator.py $(STAGING_DIR)/var/scripts/CharTranslator.py
-	install -m 600 src/config.ini $(STAGING_DIR)/var/config.ini
-	install -m 755 -d $(STAGING_DIR)/share/wheelhouse
-	install -m 644 $(WORK_DIR)/wheelhouse/* $(STAGING_DIR)/share/wheelhouse/
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config
-		install -m 755 -d $(STAGING_DIR)/app/images
+	install -m 755 -d $(STAGING_DIR)/app/images
 	for size in 16 24 32 48 72; do \
 		convert $(SPK_ICON) -thumbnail $${size}x$${size} \
 		        $(STAGING_DIR)/app/images/$(SPK_NAME)-$${size}.png ; \
 	done
+
+$(STAGING_DIR)/share/weewx:
+	install -m 755 -d $(STAGING_DIR)/share
+	cd $(STAGING_DIR)/share && git clone --recursive https://github.com/weewx/weewx weewx
+	rm -fr $(STAGING_DIR)/share/weewx/.git $(STAGING_DIR)/share/weewx/.gitignore
