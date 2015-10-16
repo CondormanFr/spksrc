@@ -4,7 +4,6 @@ SPK_REV = 1
 SPK_ICON = src/weewx.png
 DSM_UI_DIR = app
 
-DEPENDS  = cross/busybox cross/wheel cross/pyephem cross/python3 cross/pip
 WHEELS = src/requirements.txt
 SPK_DEPENDS = "python>=2.7.6-8"
 
