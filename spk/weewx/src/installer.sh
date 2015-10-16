@@ -87,7 +87,7 @@ postinst ()
     chown -R ${USER}:root ${SYNOPKG_PKGDEST}
 
     # Add firewall config
-    ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
+    #${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
 
     exit 0
 }
