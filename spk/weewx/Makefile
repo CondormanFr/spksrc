@@ -30,7 +30,6 @@ FWPORTS          = src/${SPK_NAME}.sc
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
 
-COPY_TARGET = nop
 POST_STRIP_TARGET = weewx_extra_install
 
 
