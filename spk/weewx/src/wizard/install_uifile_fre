@@ -1,0 +1,19 @@
+[{
+    "step_title": "Configuration de base",
+    "items": [{
+        "type": "textfield",
+        "desc": "Répertoire de WeeWS",
+        "subitems": [{
+            "key": "wizard_download_dir",
+            "desc": "Répertoire de WeeWS",
+            "defaultValue": "/volume1/public/weewx",
+            "validator": {
+                "allowBlank": false,
+                "regex": {
+                    "expr": "/^\\\/volume[0-9]+\\\//",
+                    "errorText": "Le chemin doit commencer par /volume?/ avec ? le numéro du volume"
+                }
+            }
+        }]
+    }]
+}]
