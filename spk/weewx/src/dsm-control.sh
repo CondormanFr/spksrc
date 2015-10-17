@@ -15,19 +15,23 @@ WEEWXD="/volume1/public/weewx/system/bin/weewxd"
 CFG_FILE="/volume1/public/weewx/system/weewx.conf"
 LOG_FILE="${INSTALL_DIR}/var/logs/weewx.log"
 PID_FILE="${INSTALL_DIR}/var/weewx.pid"
+RUN_ARGS="--daemon {CFG_FILE}" 
 
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH}  ${WEEWXD} ${CFG_FILE} --pidfile ${PID_FILE}"
+    start-stop-daemon -S -c ${USER] -p ${PID_FILE} -x env PATH=${PATH} ${WEEWXD} -- ${RUN_ARGS} || return 2
 }
 
 stop_daemon ()
 {
-    kill `cat ${PID_FILE}`
-    wait_for_status 1 20
-    kill -9 `cat ${PID_FILE}`
+    start-stop-daemon -K -q -u ${USER} -p ${PID_FILE}
+    wait_for_status 1 20 || start-stop-daemon -K -s 9 -q -p ${PID_FILE}
     rm -f ${PID_FILE}
+    #kill `cat ${PID_FILE}`
+    #wait_for_status 1 20
+    #kill -9 `cat ${PID_FILE}`
+    #rm -f ${PID_FILE}
 }
 
 daemon_status ()
