@@ -95,7 +95,7 @@ preuninst ()
 
     # Remove firewall config
     if [ "${SYNOPKG_PKG_STATUS}" == "UNINSTALL" ]; then
-    #    ${SERVICETOOL} --remove-configure-file --package ${PACKAGE}.sc >> /dev/null
+    
     fi
 
     exit 0
