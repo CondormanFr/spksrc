@@ -55,7 +55,7 @@ postinst ()
     sed -i -e "s/@weewx_home_folder@/${wizard_weewx_home_folder:=\/volume1\/public\/weewx\/system}/g" ${CFG_FILE}
 
     # Setup weewx
-    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py
+    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py build
 
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin
