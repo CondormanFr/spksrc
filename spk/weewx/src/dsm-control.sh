@@ -15,12 +15,12 @@ WEEWXD="/volume1/public/weewx/system/bin/weewxd"
 CFG_FILE="/volume1/public/weewx/system/weewx.conf"
 LOG_FILE="${INSTALL_DIR}/var/logs/weewx.log"
 PID_FILE="${INSTALL_DIR}/var/weewx.pid"
-RUN_ARGS="--daemon {CFG_FILE}" 
+RUN_ARGS="--daemon {CFG_FILE} --pidfile ${PID_FILE}" 
 
 
 start_daemon ()
 {
-    start-stop-daemon -S -c ${USER] -p ${PID_FILE} -x env PATH=${PATH} ${WEEWXD} -- ${RUN_ARGS} || return 2
+    start-stop-daemon -S -c ${USER] -x env PATH=${PATH} ${WEEWXD} -- ${RUN_ARGS} || return 2
 }
 
 stop_daemon ()
