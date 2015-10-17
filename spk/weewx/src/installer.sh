@@ -52,7 +52,7 @@ postinst ()
     ${INSTALL_DIR}/env/bin/pip install --no-deps --no-index -f ${INSTALL_DIR}/share/wheelhouse -r ${INSTALL_DIR}/share/wheelhouse/requirements.txt > /dev/null
 
     # Edit the configuration according to the wizard
-    sed -i -e "s/@weewx_home_folder@/${wizard_weewx_home_folder:=\/volume1\/public\/weewx}/g" ${CFG_FILE}
+    sed -i -e "s|@weewx_home_folder@|${wizard_weewx_home_folder:=/volume1/public/weewx}|g" ${CFG_FILE}
 
     # Setup weewx
     cd ${INSTALL_DIR}/share/weewx 
