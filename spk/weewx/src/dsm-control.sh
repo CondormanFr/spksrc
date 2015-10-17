@@ -10,15 +10,16 @@ PYTHON_DIR="/usr/local/python"
 PATH="${INSTALL_DIR}/bin:${INSTALL_DIR}/env/bin:${PYTHON_DIR}/bin:${PATH}"
 USER="weewx"
 PYTHON="${INSTALL_DIR}/env/bin/python"
-SABNZBD="${INSTALL_DIR}/share/weewx/SABnzbd.py"
-CFG_FILE="${INSTALL_DIR}/var/config.ini"
+#SABNZBD="${INSTALL_DIR}/share/weewx/SABnzbd.py"
+WEEWXD="/volume1/public/weewx/system/bin/weewxd"
+CFG_FILE="/volume1/public/weewx/system/weewx.conf"
 LOG_FILE="${INSTALL_DIR}/var/logs/weewx.log"
 PID_FILE="${INSTALL_DIR}/var/weewx.pid"
 
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH} ${PYTHON} ${SABNZBD} -f ${CFG_FILE} --pidfile ${PID_FILE} -d"
+    su - ${USER} -c "PATH=${PATH}  ${WEEWXD} ${CFG_FILE} --pidfile ${PID_FILE}"
 }
 
 stop_daemon ()
