@@ -97,10 +97,6 @@ preuninst ()
         deluser ${USER}
     fi
 
-    # Remove firewall config
-    if [ "${SYNOPKG_PKG_STATUS}" == "UNINSTALL" ]; then
-    
-    fi
 
     exit 0
 }
