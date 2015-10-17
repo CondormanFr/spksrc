@@ -55,8 +55,6 @@ postinst ()
     # Link
     ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}
     
-    #ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}/
-
     # Create a Python virtualenv
     ${VIRTUALENV} --system-site-packages ${INSTALL_DIR}/env > /dev/null
 
