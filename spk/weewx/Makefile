@@ -58,3 +58,4 @@ $(STAGING_DIR)/share/weewx:
 	install -m 755 -d $(STAGING_DIR)/share
 	cd $(STAGING_DIR)/share && git clone --recursive https://github.com/weewx/weewx weewx
 	rm -fr $(STAGING_DIR)/share/weewx/.git $(STAGING_DIR)/share/weewx/.gitignore
+	install -m 644 src/config/setup.cfg $(STAGING_DIR)/share/weewx/setup.cfg

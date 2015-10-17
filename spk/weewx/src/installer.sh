@@ -12,14 +12,10 @@ PATH="${INSTALL_DIR}/bin:${INSTALL_DIR}/env/bin:${PYTHON_DIR}/bin:${PATH}"
 USER="weewx"
 GROUP="users"
 VIRTUALENV="${PYTHON_DIR}/bin/virtualenv"
-CFG_FILE="${INSTALL_DIR}/var/config.ini"
+CFG_FILE="${INSTALL_DIR}/share/weewx/setup.cfg"
 TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp"
 
 SERVICETOOL="/usr/syno/bin/servicetool"
-FWPORTS="/var/packages/${PACKAGE}/scripts/${PACKAGE}.sc"
-
-SYNO_GROUP="sc-download"
-SYNO_GROUP_DESC="SynoCommunity's download related group"
 
 syno_group_create ()
 {
@@ -45,8 +41,8 @@ preinst ()
 {
     # Check directory
     if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
-        if [ ! -d ${wizard_download_dir:=/volume1/downloads} ]; then
-            echo "Download directory ${wizard_download_dir} does not exist."
+        if [ ! -d ${wizard_weewx_home_folder:=/volume1/public/weewx/system} ]; then
+            echo "weewx directory ${wizard_weewx_home_folder} does not exist."
             exit 1
         fi
     fi
@@ -64,6 +60,12 @@ postinst ()
 
     # Install the wheels
     ${INSTALL_DIR}/env/bin/pip install --no-deps --no-index -f ${INSTALL_DIR}/share/wheelhouse -r ${INSTALL_DIR}/share/wheelhouse/requirements.txt > /dev/null
+
+    # Edit the configuration according to the wizard
+    sed -i -e "s/@weewx_home_folder@/${wizard_weewx_home_folder:=/volume1/public/weewx/system}/g" ${CFG_FILE}
+
+    # Setup weewx
+    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py
 
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin
