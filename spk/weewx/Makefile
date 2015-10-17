@@ -2,7 +2,7 @@ SPK_NAME = weewx
 SPK_VERS = 3.2.1
 SPK_REV = 2
 SPK_ICON = src/weewx.png
-DSM_UI_DIR = app
+
 
 DEPENDS = cross/busybox cross/libjpeg  cross/freetype cross/zlib 
 
