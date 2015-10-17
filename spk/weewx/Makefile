@@ -32,7 +32,7 @@ INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 POST_STRIP_TARGET = weewx_extra_install
 
 
-BUSYBOX_CONFIG  = nice
+BUSYBOX_CONFIG  = nice daemon
 # Add ionice for ARCHs that support it
 ifeq ($(findstring $(ARCH),88f6281 qoriq),$(ARCH))
 BUSYBOX_CONFIG += ionice
