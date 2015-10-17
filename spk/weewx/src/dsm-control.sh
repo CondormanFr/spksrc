@@ -12,10 +12,10 @@ USER="weewx"
 PYTHON="${INSTALL_DIR}/env/bin/python"
 #SABNZBD="${INSTALL_DIR}/share/weewx/SABnzbd.py"
 WEEWXD="/volume1/public/weewx/system/bin/weewxd"
-CFG_FILE="/volume1/public/weewx/system/weewx.conf"
+CFG_FILE="/volume1/public/weewx/weewx.conf"
 LOG_FILE="${INSTALL_DIR}/var/logs/weewx.log"
 PID_FILE="${INSTALL_DIR}/var/weewx.pid"
-RUN_ARGS="--daemon {CFG_FILE} --pidfile ${PID_FILE}" 
+RUN_ARGS="--daemon --pidfile ${PID_FILE} {CFG_FILE}" 
 
 
 start_daemon ()
