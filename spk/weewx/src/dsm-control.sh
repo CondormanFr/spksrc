@@ -15,7 +15,7 @@ WEEWXD="/volume1/public/weewx/system/bin/weewxd"
 CFG_FILE="/volume1/public/weewx/weewx.conf"
 LOG_FILE="${INSTALL_DIR}/var/logs/weewx.log"
 PID_FILE="${INSTALL_DIR}/var/weewx.pid"
-RUN_ARGS="--daemon --pidfile ${PID_FILE} {CFG_FILE}" 
+RUN_ARGS="--daemon --pidfile ${PID_FILE} ${CFG_FILE}" 
 
 
 start_daemon ()
