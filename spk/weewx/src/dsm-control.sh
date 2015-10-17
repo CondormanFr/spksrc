@@ -20,7 +20,7 @@ RUN_ARGS="--daemon --pidfile ${PID_FILE} {CFG_FILE}"
 
 start_daemon ()
 {
-    start-stop-daemon -S -c ${USER] -x env PATH=${PATH} ${WEEWXD} -- ${RUN_ARGS} || return 2
+    start-stop-daemon -S -c ${USER} -x env PATH=${PATH} ${WEEWXD} -- ${RUN_ARGS} || return 2
 }
 
 stop_daemon ()
