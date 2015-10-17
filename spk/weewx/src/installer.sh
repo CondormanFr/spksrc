@@ -54,6 +54,8 @@ postinst ()
 {
     # Link
     ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}
+    
+    #ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}/
 
     # Create a Python virtualenv
     ${VIRTUALENV} --system-site-packages ${INSTALL_DIR}/env > /dev/null
@@ -97,7 +99,7 @@ preuninst ()
 
     # Remove firewall config
     if [ "${SYNOPKG_PKG_STATUS}" == "UNINSTALL" ]; then
-        ${SERVICETOOL} --remove-configure-file --package ${PACKAGE}.sc >> /dev/null
+    #    ${SERVICETOOL} --remove-configure-file --package ${PACKAGE}.sc >> /dev/null
     fi
 
     exit 0

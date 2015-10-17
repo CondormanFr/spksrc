@@ -1,19 +1,19 @@
 #!/bin/sh
 
 # Package
-PACKAGE="sabnzbd"
-DNAME="SABnzbd"
+PACKAGE="weewx"
+DNAME="weewx"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PYTHON_DIR="/usr/local/python"
 PATH="${INSTALL_DIR}/bin:${INSTALL_DIR}/env/bin:${PYTHON_DIR}/bin:${PATH}"
-USER="sabnzbd"
+USER="weewx"
 PYTHON="${INSTALL_DIR}/env/bin/python"
-SABNZBD="${INSTALL_DIR}/share/SABnzbd/SABnzbd.py"
+SABNZBD="${INSTALL_DIR}/share/weewx/SABnzbd.py"
 CFG_FILE="${INSTALL_DIR}/var/config.ini"
-LOG_FILE="${INSTALL_DIR}/var/logs/sabnzbd.log"
-PID_FILE="${INSTALL_DIR}/var/sabnzbd.pid"
+LOG_FILE="${INSTALL_DIR}/var/logs/weewx.log"
+PID_FILE="${INSTALL_DIR}/var/weewx.pid"
 
 
 start_daemon ()
