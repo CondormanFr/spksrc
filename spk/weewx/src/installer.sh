@@ -109,7 +109,7 @@ postuninst ()
     # Remove link
     rm -f ${INSTALL_DIR}
     
-    rm ${wizard_weewx_home_folder:=\/volume1\/public\/weewx\/system}/bin/weewxd.py
+    rm ${wizard_weewx_home_folder:=/volume1/public/weewx}/bin/weewxd.py
 
     exit 0
 }
