@@ -56,7 +56,9 @@ postinst ()
 
     # Setup weewx
     cd ${INSTALL_DIR}/share/weewx 
-    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py build
+    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py build > /dev/null
+    
+    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py install --quiet > /dev/null
 
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin
