@@ -58,7 +58,7 @@ postinst ()
     cd ${INSTALL_DIR}/share/weewx 
     ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py build > /dev/null
     
-    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py install --quiet > /dev/null
+    ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py install --no-prompt > /dev/null
 
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin
@@ -108,6 +108,8 @@ postuninst ()
 {
     # Remove link
     rm -f ${INSTALL_DIR}
+    
+    rm ${wizard_weewx_home_folder:=\/volume1\/public\/weewx\/system}/bin/weewxd.py
 
     exit 0
 }
