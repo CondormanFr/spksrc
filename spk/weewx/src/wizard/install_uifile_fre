@@ -4,7 +4,7 @@
         "type": "textfield",
         "desc": "Répertoire de WeeWS",
         "subitems": [{
-            "key": "wizard_download_dir",
+            "key": "wizard_weewx_home_folder",
             "desc": "Répertoire de WeeWS",
             "defaultValue": "/volume1/public/weewx",
             "validator": {
