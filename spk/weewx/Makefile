@@ -4,7 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/weewx.png
 DSM_UI_DIR = app
 
-DEPENDS = cross/busybox cross/libjpeg
+DEPENDS = cross/busybox cross/libjpeg  cross/freetype cross/zlib 
 
 WHEELS = src/requirements.txt
 
