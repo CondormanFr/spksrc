@@ -19,8 +19,6 @@ SERVICETOOL="/usr/syno/bin/servicetool"
 
 syno_group_create ()
 {
-    
-
     # Add user to syno group (Does nothing when user already in the group)
     addgroup ${USER} ${GROUP}
 }
@@ -40,12 +38,12 @@ syno_group_remove ()
 preinst ()
 {
     # Check directory
-    if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
-        if [ ! -d ${wizard_weewx_home_folder:=/volume1/public/weewx/system} ]; then
-            echo "weewx directory ${wizard_weewx_home_folder} does not exist."
-            exit 1
-        fi
-    fi
+    #if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
+    #    if [ ! -d ${wizard_weewx_home_folder:=/volume1/public/weewx/system} ]; then
+    #        echo "weewx directory ${wizard_weewx_home_folder} does not exist."
+    #        exit 1
+    #    fi
+    #fi
 
     exit 0
 }
