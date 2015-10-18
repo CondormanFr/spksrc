@@ -1,6 +1,6 @@
 SPK_NAME = weewx
 SPK_VERS = 3.2.1
-SPK_REV = 3
+SPK_REV = 4
 SPK_ICON = src/weewx.png
 
 
