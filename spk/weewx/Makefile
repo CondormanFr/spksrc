@@ -61,4 +61,4 @@ $(STAGING_DIR)/share/weewx:
 	install -m 655 src/config/setup.cfg $(STAGING_DIR)/share/weewx/setup.cfg
 	install -m 755 -d $(STAGING_DIR)/extension
 	cd $(STAGING_DIR)/extension
-	wget -nv -c -O $(STAGING_DIR)/extension http://lancet.mit.edu/mwall/projects/weather/releases/weewx-mqtt-0.9.tgz
+	wget -nv -c http://lancet.mit.edu/mwall/projects/weather/releases/weewx-mqtt-0.9.tgz
