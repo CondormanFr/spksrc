@@ -51,6 +51,9 @@ postinst ()
     # Install the wheels
     ${INSTALL_DIR}/env/bin/pip install --no-deps --no-index -f ${INSTALL_DIR}/share/wheelhouse -r ${INSTALL_DIR}/share/wheelhouse/requirements.txt > /dev/null
 
+    # Install PAHO-MQTT
+    ${INSTALL_DIR}/env/bin/pip install paho-mqtt > /dev/null
+    
     # Edit the configuration according to the wizard
     sed -i -e "s|@weewx_home_folder@|${wizard_weewx_home_folder:=/volume1/public/weewx}|g" ${CFG_FILE}
 
@@ -59,6 +62,8 @@ postinst ()
     ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py build > /dev/null
     
     ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/share/weewx/setup.py install --no-prompt > /dev/null
+    
+    ${wizard_weewx_home_folder:=/volume1/public/weewx}/bin/wee_extension --install ${INSTALL_DIR}/extension/weewx-mqtt-0.9.tgz > /dev/null
 
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin

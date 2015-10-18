@@ -14,7 +14,7 @@ MAINTAINER = SynoCommunity
 DESCRIPTION = WeeWX
 DESCRIPTION_FRE = WeeWX
 DESCRIPTION_SPN = WeeWX
-	RELOAD_UI = yes
+RELOAD_UI = yes
 DISPLAY_NAME = WeeWX
 CHANGELOG = "WeeWX intial release"
 
@@ -59,3 +59,6 @@ $(STAGING_DIR)/share/weewx:
 	cd $(STAGING_DIR)/share && git clone --recursive https://github.com/weewx/weewx weewx
 	rm -fr $(STAGING_DIR)/share/weewx/.git $(STAGING_DIR)/share/weewx/.gitignore
 	install -m 655 src/config/setup.cfg $(STAGING_DIR)/share/weewx/setup.cfg
+	install -m 755 -d $(STAGING_DIR)/extension
+	cd $(STAGING_DIR)/extension
+	wget -nv -c -O $(STAGING_DIR)/extension http://lancet.mit.edu/mwall/projects/weather/releases/weewx-mqtt-0.9.tgz
