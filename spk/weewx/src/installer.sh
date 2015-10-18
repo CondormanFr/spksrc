@@ -56,6 +56,7 @@ postinst ()
     
     # Edit the configuration according to the wizard
     sed -i -e "s|@weewx_home_folder@|${wizard_weewx_home_folder:=/volume1/public/weewx}|g" ${CFG_FILE}
+    sed -i -e "s|@weewx_home_folder@|${wizard_weewx_home_folder:=/volume1/public/weewx}|g" ${SSS}
 
     # Setup weewx
     cd ${INSTALL_DIR}/share/weewx 
