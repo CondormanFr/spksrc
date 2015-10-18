@@ -1,10 +1,10 @@
 SPK_NAME = weewx
-SPK_VERS = 3.2.1
+SPK_VERS = 3.3.0b1
 SPK_REV = 4
 SPK_ICON = src/weewx.png
 
 
-DEPENDS = cross/busybox cross/libjpeg  cross/freetype cross/zlib 
+DEPENDS = cross/busybox cross/libjpeg cross/freetype cross/zlib cross/pillow 
 
 WHEELS = src/requirements.txt
 
@@ -18,8 +18,8 @@ RELOAD_UI = yes
 DISPLAY_NAME = WeeWX
 CHANGELOG = "WeeWX intial release"
 
-HOMEPAGE   = http://www.weewx.com/support.html
-LICENSE    = GPLV3
+HOMEPAGE   = http://www.weewx.com
+LICENSE    = GNU Public License v3
 
 WIZARDS_DIR = src/wizard/
 

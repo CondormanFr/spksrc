@@ -29,10 +29,6 @@ stop_daemon ()
     start-stop-daemon -K -q -u ${USER} -p ${PID_FILE}
     wait_for_status 1 20 || start-stop-daemon -K -s 9 -q -p ${PID_FILE}
     rm -f ${PID_FILE}
-    #kill `cat ${PID_FILE}`
-    #wait_for_status 1 20
-    #kill -9 `cat ${PID_FILE}`
-    #rm -f ${PID_FILE}
 }
 
 daemon_status ()

@@ -4,8 +4,7 @@ pyserial>=2.6
 configobj
 Cheetah 
 pyusb
-pillow==2.9.0
-
+#pillow==2.9.0
 
 # optional, needed for specific components
 
