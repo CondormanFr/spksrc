@@ -1,7 +1,7 @@
 PKG_NAME = teleinfo2mqtt
 PKG_EXT = tar.gz
 PKG_DOWNLOAD_METHOD = git
-PKG_GIT_HASH = 92f007c
+PKG_GIT_HASH = 43558e8
 PKG_DIST_SITE = https://github.com/destroyedlolo/TeleInfod.git
 PKG_DIST_FILE = $(PKG_NAME)-git$(PKG_GIT_HASH).$(PKG_EXT)
 PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
@@ -9,7 +9,7 @@ PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
 DEPENDS = cross/mosquitto
 
 HOMEPAGE = https://github.com/destroyedlolo/TeleInfod
-COMMENT  = 
+COMMENT  = TeleInfod is a daemon that publishes electricity smart meters “TéléInformation” data to a MQTT Broker. Developped by Laurent FAILLIE.
 LICENSE  = Creative Commons Attribution-NonCommercial 3.0 License
 
 CONFIGURE_TARGET = nop
