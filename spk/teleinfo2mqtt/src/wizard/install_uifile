@@ -1,0 +1,44 @@
+[{
+    "step_title": "Basic configuration",
+    "items": [{
+        "type": "textfield",
+        "desc": "Serial port (by default : /dev/ttyUSB0)",
+        "subitems": [{
+            "key": "wizard_serial_port",
+            "desc": "Serial port",
+            "defaultValue": "/dev/ttyUSB0",
+            "validator": {
+                "allowBlank": false
+            }
+        }]
+    },{
+        "type": "textfield",
+        "desc": "MQTT Broker",
+        "subitems": [{
+            "key": "wizard_BrokerHost",
+            "desc": "Mqtt broker host address (By default : localhost)",
+            "defaultValue": "localhost",
+            "validator": {
+                "allowBlank": true
+            }
+						},{
+            "key": "wizard_BrokerPort",
+            "desc": "Mqtt broker server port (By default : 1883)",
+            "defaultValue": "1883",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    },{
+        "type": "textfield",
+        	"desc": "Topic name",
+        "subitems": [{
+            "key": "wizard_mqtttopic",
+            "desc": "MQTT topic root (By default : TeleInfo/Production)",
+            "defaultValue": "TeleInfo/Production",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    }]
+}]

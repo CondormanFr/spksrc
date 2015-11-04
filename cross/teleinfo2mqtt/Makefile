@@ -1,0 +1,36 @@
+PKG_NAME = teleinfo2mqtt
+PKG_EXT = tar.gz
+PKG_DOWNLOAD_METHOD = git
+PKG_GIT_HASH = 43558e8
+PKG_DIST_SITE = https://github.com/destroyedlolo/TeleInfod.git
+PKG_DIST_FILE = $(PKG_NAME)-git$(PKG_GIT_HASH).$(PKG_EXT)
+PKG_DIR = $(PKG_NAME)-git$(PKG_GIT_HASH)
+
+DEPENDS = cross/mosquitto
+
+HOMEPAGE = https://github.com/destroyedlolo/TeleInfod
+COMMENT  = TeleInfod is a daemon that publishes electricity smart meters “TéléInformation” data to a MQTT Broker. Developped by Laurent FAILLIE.
+LICENSE  = Creative Commons Attribution-NonCommercial 3.0 License
+
+CONFIGURE_TARGET = nop
+COMPILE_TARGET = myCompile
+INSTALL_TARGET = myInstall
+
+include ../../mk/spksrc.cross-cc.mk
+
+.PHONY: myCompile
+myCompile:
+	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
+          -std=c99 -DUSE_MOSQUITTO -Wall TeleInfod.c -o TeleInfod \
+          -L$(STAGING_INSTALL_PREFIX)/lib -Wl,--rpath-link,$(STAGING_INSTALL_PREFIX)/lib \
+          -Wl,--rpath,/usr/local/$(PKG_NAME)/lib -lpthread -lmosquitto
+	$(RUN) $(TC_PATH)$(TC_PREFIX)gcc -I$(STAGING_INSTALL_PREFIX)/include \
+           -Wall SimuleTrames.c -o SimuleTrames \
+          -L$(STAGING_INSTALL_PREFIX)/lib -Wl,--rpath-link,$(STAGING_INSTALL_PREFIX)/lib \
+          -Wl,--rpath,/usr/local/$(PKG_NAME)/lib
+
+.PHONY: myInstall
+myInstall:
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleInfod $(STAGING_INSTALL_PREFIX)/bin
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/SimuleTrames $(STAGING_INSTALL_PREFIX)/bin
+	@$(RUN) cp $(WORK_DIR)/$(PKG_DIR)/TeleInfod.conf $(STAGING_INSTALL_PREFIX)/bin/TeleInfod.conf

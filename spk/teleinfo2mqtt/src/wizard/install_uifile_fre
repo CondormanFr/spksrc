@@ -1,0 +1,44 @@
+[{
+    "step_title": "Configuration de base",
+    "items": [{
+        "type": "textfield",
+        "desc": "Port Série (/dev/ttyUSB0 par défaut)",
+        "subitems": [{
+            "key": "wizard_serial_port",
+            "desc": "Port série",
+            "defaultValue": "/dev/ttyUSB0",
+            "validator": {
+                "allowBlank": false
+            }
+        }]
+    },{
+        "type": "textfield",
+        "desc": "Serveur MQTT",
+        "subitems": [{
+            "key": "wizard_BrokerHost",
+            "desc": "Serveur sur lequel tourne le broker (par défaut : localhost)",
+            "defaultValue": "localhost",
+            "validator": {
+                "allowBlank": true
+            }
+						},{
+            "key": "wizard_BrokerPort",
+            "desc": "Port du broker (par défaut : 1883)",
+            "defaultValue": "1883",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    },{
+        "type": "textfield",
+        	"desc": "Nom du Topic",
+        "subitems": [{
+            "key": "wizard_mqtttopic",
+            "desc": "Racine du topic MQTT.Par défaut : TeleInfo/Production",
+            "defaultValue": "TeleInfo/Production",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    }]
+}]
