@@ -1,6 +1,6 @@
 PKG_NAME = db
-PKG_VERS = 6.1.23
-PKG_EXT = tar.gz
+PKG_VERS = 6.1.26
+PKG_EXT = gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/index.html
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
