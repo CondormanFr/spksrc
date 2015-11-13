@@ -4,7 +4,7 @@ SPK_REV = 4
 SPK_ICON = src/weewx.png
 
 
-DEPENDS = cross/busybox cross/libjpeg cross/freetype cross/zlib 
+DEPENDS = cross/busybox
 
 WHEELS = src/requirements.txt
 
