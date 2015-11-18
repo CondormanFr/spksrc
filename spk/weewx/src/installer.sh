@@ -90,7 +90,7 @@ postinst ()
     # Correct the files ownership
     chown -R ${USER}:root ${SYNOPKG_PKGDEST}
     chown -R ${USER}:users ${wizard_weewx_home_folder:=/volume1/public/weewx}
-    chmod g+w ${wizard_weewx_home_folder:=/volume1/public/weewx}
+    chmod -R g+w ${wizard_weewx_home_folder:=/volume1/public/weewx}
 
     # Add firewall config
     #${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
