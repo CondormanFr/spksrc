@@ -1,7 +1,7 @@
 SPK_NAME = weewx
 SPK_VERS = 3.3.0b1
 GIT_REV = 0c3687e
-SPK_REV = 4
+SPK_REV = 5
 SPK_ICON = src/weewx.png
 
 
