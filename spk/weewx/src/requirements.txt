@@ -8,7 +8,7 @@ pyusb
 # optional, needed for specific components
 
 # sun
-pyephem>=3.7
+
 
 # sensor.systemmonitor
-psutil>=2.2.1
+
