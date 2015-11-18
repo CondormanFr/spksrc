@@ -2,3 +2,4 @@
 pyserial>=2.6
 configobj
 pyusb
+PyMySQL
