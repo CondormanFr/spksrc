@@ -1,5 +1,6 @@
 SPK_NAME = weewx
 SPK_VERS = 3.3.0b1
+GIT_REV = 0c3687e
 SPK_REV = 4
 SPK_ICON = src/weewx.png
 
@@ -11,9 +12,8 @@ WHEELS = src/requirements.txt
 SPK_DEPENDS = "python>=2.7.6-8"
 
 MAINTAINER = SynoCommunity
-DESCRIPTION = WeeWX
-DESCRIPTION_FRE = WeeWX
-DESCRIPTION_SPN = WeeWX
+DESCRIPTION = WeeWX is a free, open source, software program, written in Python, which interacts with your weather station to produce graphs, reports, and HTML pages. It can optionally publish to weather sites or web servers. It uses modern software concepts, making it simple, robust, and easy to extend.
+DESCRIPTION_FRE = WeeWX est un logiciel gratuit, open source, écrit en Python, qui interagit avec votre station météo pour produire des graphiques, des rapports et des pages HTML. Il peut éventuellement publier sur des sites de météo ou des serveurs web. Il utilise des concepts logiciels modernes, le rendant simple, robuste et facile à étendre.
 RELOAD_UI = yes
 DISPLAY_NAME = WeeWX
 CHANGELOG = "WeeWX intial release"
@@ -56,7 +56,7 @@ weewx_extra_install: $(STAGING_DIR)/share/weewx
 $(STAGING_DIR)/share/weewx:
 	install -m 755 -d $(STAGING_DIR)/share
 	cd $(STAGING_DIR)/share && git clone --recursive https://github.com/weewx/weewx weewx
-	rm -fr $(STAGING_DIR)/share/weewx/.git $(STAGING_DIR)/share/weewx/.gitignore
+	cd $(STAGING_DIR)/share/weewx && git checkout $(GIT_REV) && rm -rf .git && rm .gitignore
 	install -m 655 src/config/setup.cfg $(STAGING_DIR)/share/weewx/setup.cfg
 	install -m 755 -d $(STAGING_DIR)/extension
 	cd $(STAGING_DIR)/extension

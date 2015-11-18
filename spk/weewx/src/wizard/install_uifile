@@ -2,11 +2,11 @@
     "step_title": "Basic configuration",
     "items": [{
         "type": "textfield",
-        "desc": "Download directory",
+        "desc": "WeeWX folder",
         "subitems": [{
-            "key": "wizard_download_dir",
-            "desc": "Download directory",
-            "defaultValue": "/volume1/downloads",
+            "key": "wizard_weewx_home_folder",
+            "desc": "WeeWX folder",
+            "defaultValue": "/volume1/public/weewx",
             "validator": {
                 "allowBlank": false,
                 "regex": {

@@ -1,14 +1,4 @@
-
 #(shared) extra dependencies since we use --no-deps for pip
 pyserial>=2.6
 configobj
-Cheetah 
 pyusb
-
-# optional, needed for specific components
-
-# sun
-
-
-# sensor.systemmonitor
-

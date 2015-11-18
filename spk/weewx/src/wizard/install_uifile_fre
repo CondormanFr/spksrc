@@ -2,10 +2,10 @@
     "step_title": "Configuration de base",
     "items": [{
         "type": "textfield",
-        "desc": "Répertoire de WeeWS",
+        "desc": "Répertoire de WeeWX",
         "subitems": [{
             "key": "wizard_weewx_home_folder",
-            "desc": "Répertoire de WeeWS",
+            "desc": "Répertoire de WeeWX",
             "defaultValue": "/volume1/public/weewx",
             "validator": {
                 "allowBlank": false,
