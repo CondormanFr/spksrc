@@ -57,6 +57,9 @@ postinst ()
     # Install PAHO-MQTT
     ${INSTALL_DIR}/env/bin/pip install paho-mqtt > /dev/null
     
+    # Install MySQL
+    #${INSTALL_DIR}/env/bin/pip install mysql-python > /dev/null
+    
     # Edit the configuration according to the wizard
     sed -i -e "s|@weewx_home_folder@|${wizard_weewx_home_folder:=/volume1/public/weewx}|g" ${CFG_FILE}
     sed -i -e "s|@weewx_home_folder@|${wizard_weewx_home_folder:=/volume1/public/weewx}|g" ${SSS}
